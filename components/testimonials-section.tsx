@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
@@ -83,6 +83,29 @@ export default function TestimonialsSection() {
     }),
   }
 
+  // Fix for buttons - ensure they're clickable
+  useEffect(() => {
+    const prevButton = document.querySelector('[aria-label="Previous testimonial"]')
+    const nextButton = document.querySelector('[aria-label="Next testimonial"]')
+    const dotButtons = document.querySelectorAll('[aria-label^="Go to testimonial"]')
+
+    const makeClickable = (el: Element) => {
+      el.classList.add("clickable")
+      ;(el as HTMLElement).style.pointerEvents = "auto"
+      ;(el as HTMLElement).style.zIndex = "50"
+    }
+
+    if (prevButton) makeClickable(prevButton)
+    if (nextButton) makeClickable(nextButton)
+    dotButtons.forEach(makeClickable)
+
+    return () => {
+      if (prevButton) prevButton.classList.remove("clickable")
+      if (nextButton) nextButton.classList.remove("clickable")
+      dotButtons.forEach((el) => el.classList.remove("clickable"))
+    }
+  }, [])
+
   return (
     <section ref={sectionRef} className="relative py-20 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -146,8 +169,9 @@ export default function TestimonialsSection() {
               size="icon"
               onClick={prevSlide}
               disabled={isAnimating}
-              className="rounded-full border-neon-magenta text-neon-magenta hover:bg-neon-magenta/10 transition-all duration-300 hover:scale-110"
+              className="rounded-full border-neon-magenta text-neon-magenta hover:bg-neon-magenta/10 transition-all duration-300 hover:scale-110 clickable"
               aria-label="Previous testimonial"
+              style={{ pointerEvents: "auto", zIndex: 50 }}
             >
               <ChevronLeft className="h-5 w-5" />
               <span className="sr-only">Previous testimonial</span>
@@ -164,10 +188,11 @@ export default function TestimonialsSection() {
                     setActiveIndex(index)
                     setTimeout(() => setIsAnimating(false), 500)
                   }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-3 h-3 rounded-full transition-all duration-300 clickable ${
                     index === activeIndex ? "bg-neon-cyan w-6" : "bg-gray-600 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
+                  style={{ pointerEvents: "auto", zIndex: 50 }}
                 />
               ))}
             </div>
@@ -177,8 +202,9 @@ export default function TestimonialsSection() {
               size="icon"
               onClick={nextSlide}
               disabled={isAnimating}
-              className="rounded-full border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10 transition-all duration-300 hover:scale-110"
+              className="rounded-full border-neon-cyan text-neon-cyan hover:bg-neon-cyan/10 transition-all duration-300 hover:scale-110 clickable"
               aria-label="Next testimonial"
+              style={{ pointerEvents: "auto", zIndex: 50 }}
             >
               <ChevronRight className="h-5 w-5" />
               <span className="sr-only">Next testimonial</span>
@@ -192,4 +218,5 @@ export default function TestimonialsSection() {
     </section>
   )
 }
+
 

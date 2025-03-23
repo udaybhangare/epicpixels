@@ -24,11 +24,11 @@ export default function EnhancedNavbar() {
 
   const menuItems = [
     { name: "Home", href: "/" },
-    // { name: "About", href: "/about" },
+    { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
-    // { name: "Portfolio", href: "/portfolio" },
+    { name: "Portfolio", href: "/portfolio" },
     { name: "Team", href: "/team" },
-    // { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "/contact" },
   ]
 
   return (

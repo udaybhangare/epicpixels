@@ -96,10 +96,10 @@ importers:
         specifier: ^1.1.6
         version: 1.1.8(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@react-three/drei':
-        specifier: latest
+        specifier: ^10.0.4
         version: 10.0.4(@react-three/fiber@9.1.0(a32e9438eb3cf2df5939f3a40fb68865))(@types/react@19.0.12)(@types/three@0.174.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.174.0)
       '@react-three/fiber':
-        specifier: latest
+        specifier: ^9.1.0
         version: 9.1.0(a32e9438eb3cf2df5939f3a40fb68865)
       autoprefixer:
         specifier: ^10.4.20
@@ -180,7 +180,7 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
       three:
-        specifier: latest
+        specifier: ^0.174.0
         version: 0.174.0
       vaul:
         specifier: ^0.9.6
@@ -948,7 +948,7 @@ packages:
 
   '@expo/bunyan@4.0.1':
     resolution: {integrity: sha512-+Lla7nYSiHZirgK+U/uYzsLv/X+HaJienbD5AKX1UQZHYfWaP+9uuQluRB4GrEVWF0GZ7vEVp/jzaOT9k/SQlg==}
-    engines: {node: '>=0.10.0'}
+    engines: {'0': node >=0.10.0}
 
   '@expo/cli@0.22.21':
     resolution: {integrity: sha512-lLtH0CiNTwB+qgduew61Jocgj0B092QiQllBuPXigHI4VQms5VXYXHfQC2pMZ7KWFKhNjBIjLSD8A2n1dBMb1Q==}

@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import { Canvas } from "@react-three/fiber"
-import { Float, Text3D, Environment } from "@react-three/drei"
+import { Float, Text3D, Environment, OrbitControls } from "@react-three/drei"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import EnhancedNavbar from "@/components/enhanced-navbar"
@@ -11,6 +11,7 @@ import Footer from "@/components/footer"
 import CursorEffects from "@/components/cursor-effects"
 import CustomCursor from "@/components/custom-cursor"
 import PageTransition from "@/components/page-transition"
+
 
 function FloatingIcons() {
   return (
@@ -25,19 +26,19 @@ function FloatingIcons() {
         </Text3D>
       </Float>
 
-      <Float speed={1} rotationIntensity={0.4} floatIntensity={1} position={[1.5, 0.5, 0]}>
-        <Text3D font="/fonts/Geist_Bold.json" size={0.5} height={0.1} curveSegments={12}>
+      <Float speed={1} rotationIntensity={0.4} floatIntensity={1}>
+        <Text3D font="/fonts/Geist_Bold.json" size={0.5} height={0.1} curveSegments={12} position={[1.5, 0.5, 0]}>
           {"</>"}
           <meshStandardMaterial color="hsl(325, 100%, 50%)" emissive="hsl(325, 100%, 50%)" emissiveIntensity={0.5} />
         </Text3D>
       </Float>
 
-      <Float speed={1.2} rotationIntensity={0.6} floatIntensity={1.2} position={[0, -1, 0]}>
-        <Text3D font="/fonts/Geist_Bold.json" size={0.5} height={0.1} curveSegments={12}>
+      <Float speed={1.2} rotationIntensity={0.6} floatIntensity={1.2}>
+        <Text3D font="/fonts/Geist_Bold.json" size={0.5} height={0.1} curveSegments={12} position={[0, -1, 0]}>
           {"AI"}
           <meshStandardMaterial color="hsl(180, 100%, 50%)" emissive="hsl(180, 100%, 50%)" emissiveIntensity={0.5} />
         </Text3D>
-      </Float>
+      </Float> 
     </Canvas>
   )
 }
@@ -113,10 +114,10 @@ export default function AboutPage() {
                 Discover our journey from a small design studio to a cutting-edge digital marketing agency.
               </p>
             </motion.div>
-          </div>
+          </div> 
 
           {/* Cyberpunk grid overlay */}
-          <div className="absolute inset-0 cyberpunk-grid opacity-20 z-0"></div>
+          <div className="absolute inset-0 cyberpunk-grid opacity-20 z-0"></div> 
         </section>
 
         <section id="about" ref={sectionRef} className="relative py-20 overflow-hidden">
@@ -162,11 +163,11 @@ export default function AboutPage() {
                 className="relative h-[400px] rounded-lg overflow-hidden neon-border"
               >
                 <div className="absolute inset-0 z-10">
-                  <FloatingIcons />
+                  <FloatingIcons /> 
                 </div>
                 <div className="absolute inset-0 bg-black/50 z-0"></div>
-              </motion.div>
-            </div>
+              </motion.div> 
+            </div>  
 
             {/* Timeline */}
             <div className="relative">
@@ -226,7 +227,7 @@ export default function AboutPage() {
                   isLeft={false}
                   delay={5}
                 />
-              </div>
+              </div> 
             </div>
 
             {/* Our Values Section */}
